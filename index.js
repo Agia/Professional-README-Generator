@@ -75,8 +75,6 @@ function init() {
 
     inquirer.prompt(questions)
     .then((answers) => {
-        // console.log(JSON.stringify(answers, null, '  '));
-        // fs.appendFile(`${answers.title}.md`, JSON.stringify(answers, null, '  '), err => err && console.error(err));
         
         writeToFile(`${answers.title}.md`, generateMarkdown(answers));
       });
