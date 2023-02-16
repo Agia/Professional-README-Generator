@@ -2,7 +2,19 @@
 function generateMarkdown(data) {
   return `# ${data.title}
 
-  <img src="" alt="License badge" />
+  ## Table of Contents
+
+  1. [Description](#Description)
+  2. [Installation](#Installation)
+  3. [Usage](#Usage)
+  4. [License](#License)
+  5. [Contribution](#Contribution)
+  6. [Testing](#Testing)
+  7. [Questions](#Questions)
+
+  <hr>
+  
+  <img src="https://img.shields.io/badge/License-${data.license}-4C4C9D?style=for-the-badge" alt="License badge" />
 
   ## Description
   ${data.description}
@@ -22,10 +34,12 @@ function generateMarkdown(data) {
   ## Testing
   ${data.testing}
 
-  ## Questions
-  For further info about me, you can check out my GitHub profile [here](https://github.io/${data.username}).
+  <hr>
 
-  To contact me directly via email [here](mailto://${data.email}).
+  ## Questions
+  For further info about me, you can check out my GitHub profile [**here**](https://github.com/${data.username}).
+
+  To contact me directly, you can reach me via email [**here**](mailto:${data.email}).
 `;
 }
 
