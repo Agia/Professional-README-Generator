@@ -67,6 +67,7 @@ const questions = [
 
 // Function to write README file
 function writeToFile(fileName, data) {
+    fs.appendFile(fileName, data, err => err && console.error(err));
 }
 
 // Function to initialize program
@@ -75,7 +76,9 @@ function init() {
     inquirer.prompt(questions)
     .then((answers) => {
         // console.log(JSON.stringify(answers, null, '  '));
-        fs.appendFile(`${answers.title}.md`, JSON.stringify(answers, null, '  '), err => err && console.error(err));
+        // fs.appendFile(`${answers.title}.md`, JSON.stringify(answers, null, '  '), err => err && console.error(err));
+        
+        writeToFile(`${answers.title}.md`, generateMarkdown(answers));
       });
 
 }
