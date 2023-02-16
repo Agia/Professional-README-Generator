@@ -1,8 +1,12 @@
 // Importing require packages / modules
-const fs = require("fs");
-const path = require('path');
-const inquirer = require("inquirer");
-const generateMarkdown = require("./utils/generateMarkdown");
+
+// const fs = require("fs");
+// const path = require('path');
+// const inquirer = require("inquirer");
+
+import inquirer from 'inquirer';
+import fs from "fs/promises";
+import generateMarkdown from "./utils/generateMarkdown.js";
 
 // Array of questions for user
 const questions = [
@@ -76,7 +80,7 @@ function init() {
     inquirer.prompt(questions)
     .then((answers) => {
         
-        writeToFile(`${answers.title}.md`, generateMarkdown(answers));
+        writeToFile("README.md", generateMarkdown(answers));
       });
 
 }
