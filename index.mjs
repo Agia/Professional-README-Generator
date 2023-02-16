@@ -1,9 +1,7 @@
-// Importing required packages / modules
+// Import required packages / modules
 import inquirer from 'inquirer';
 import fs from "fs/promises";
 import generateMarkdown from "./utils/generateMarkdown.js";
-// TODO: Is this needed?
-// const path = require('path');
 
 // Array of questions for user
 const questions = [
@@ -38,7 +36,7 @@ const questions = [
         type: 'list',
         name: 'license',
         message: 'Choose from the following licenses for your repo:',
-        choices: ['MIT', 'Apache 2.0', 'BSD', 'GPL', 'LGPL'],
+        choices: ['MIT', 'Apache 2.0', 'BSD', 'GPL', 'LGPL', 'AGPL', 'Mozilla Public License'],
     },
 
     {
@@ -77,22 +75,9 @@ async function writeToFile(fileName, data) {
 // Function to initialize program
 async function init() {
 
-    // TODO: Older code, for reference - to be deleted before submit
-    // inquirer.prompt(questions)
-    // .then((answers) => {
-        
-    //     writeToFile("README.md", generateMarkdown(answers));
-    //   });
-
     const answers = await inquirer
         .prompt(questions)
         await writeToFile("README.md", generateMarkdown(answers));
-
-    // TODO: How to assign deconstructed object elements with this syntax?
-    // const { title, description, installation, usage, license, contribution, testing, username, email} = await inquirer
-    //     .prompt(questions)
-    //     await writeToFile("README.md", generateMarkdown(answers))
-
 }
 
 // Function call to initialize program
