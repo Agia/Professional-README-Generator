@@ -2,6 +2,8 @@
 function generateMarkdown(data) {
   return `# ${data.title}
 
+  <img src="https://img.shields.io/badge/License-${data.license}-4C4C9D?style=for-the-badge" alt="License badge" />
+
   ## Table of Contents
 
   - [Description](#Description)
@@ -14,7 +16,6 @@ function generateMarkdown(data) {
 
   <hr>
 
-  <img src="https://img.shields.io/badge/License-${data.license}-4C4C9D?style=for-the-badge" alt="License badge" />
 
   ## Description
   ${data.description}
@@ -26,7 +27,11 @@ function generateMarkdown(data) {
   ${data.usage}
 
   ## License
-  This repo is licensed using the ${data.license} license.
+  <img src="https://img.shields.io/badge/License-${data.license}-4C4C9D?style=flat-square" alt="License badge" />
+
+  The code in this repo is licensed under the ${data.license} license.
+
+  For more information about the different licenses, and what they each cover, you can find a clear overview [here](https://choosealicense.com/licenses/) of many of the most commonly used licenses available.
 
   ## Contribution
   ${data.contribution}

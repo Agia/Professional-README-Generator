@@ -1,12 +1,9 @@
-// Importing require packages / modules
-
-// const fs = require("fs");
-// const path = require('path');
-// const inquirer = require("inquirer");
-
+// Importing required packages / modules
 import inquirer from 'inquirer';
 import fs from "fs/promises";
 import generateMarkdown from "./utils/generateMarkdown.js";
+// TODO: Is this needed?
+// const path = require('path');
 
 // Array of questions for user
 const questions = [
@@ -28,7 +25,7 @@ const questions = [
         message: 'Provide instructions for installation:',
         default() {
             return "No installation required."
-        },
+        }
     },
 
     {
@@ -47,7 +44,10 @@ const questions = [
     {
         type: 'input',
         name: 'contribution',
-        message: 'Provide guidelines for contributing to your repo:'
+        message: 'Provide guidelines for contributing to your repo:',
+        default() {
+            return "Contributions, issues and feature requests are welcome!"
+        }
     },
 
     {
@@ -70,18 +70,28 @@ const questions = [
 ];
 
 // Function to write README file
-function writeToFile(fileName, data) {
-    fs.appendFile(fileName, data, err => err && console.error(err));
+async function writeToFile(fileName, data) {
+    await fs.writeFile(fileName, data);
 }
 
 // Function to initialize program
-function init() {
+async function init() {
 
-    inquirer.prompt(questions)
-    .then((answers) => {
+    // TODO: Older code, for reference - to be deleted before submit
+    // inquirer.prompt(questions)
+    // .then((answers) => {
         
-        writeToFile("README.md", generateMarkdown(answers));
-      });
+    //     writeToFile("README.md", generateMarkdown(answers));
+    //   });
+
+    const answers = await inquirer
+        .prompt(questions)
+        await writeToFile("README.md", generateMarkdown(answers));
+
+    // TODO: How to assign deconstructed object elements with this syntax?
+    // const { title, description, installation, usage, license, contribution, testing, username, email} = await inquirer
+    //     .prompt(questions)
+    //     await writeToFile("README.md", generateMarkdown(answers))
 
 }
 
