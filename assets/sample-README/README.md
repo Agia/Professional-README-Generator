@@ -14,10 +14,6 @@
 
   <hr>
 
-
-  > :raised_hand: Everything outside of the two callouts (this being the first, and the other below with a link to the walkthrough), was generated using this very generator. Meta, eh?! If you want to view an completely unedited version, you can find it in `./assets/sample-README/README.md`.
-
-
   ## Description
   A command-line application that dynamically generates a professional README.md file, from a user's input, using Node.js and Inquirer.
 
@@ -26,10 +22,6 @@
 
   ## Usage
   Open your CLI and navigate to the folder containing `index.mjs`. Next, type `node index.mjs`, and answer the questions as prompted in the command-line. Once completed, your `README.md` will be generated, using your answers, and can be found in the same directory.
-
-  > :raised_hand: You can check out [this walkthrough video](https://youtu.be/8xXoBW6mb9A) which demonstrates the app in use - generating this very README you are reading (excluding the two callouts and gif)! The gif below is the same content as the video linked above.
-
-  ![Gif showing a full walkthrough of the app in use, to generate this README.md file](./assets/screenshot.gif)
 
   ## License
   <img src="https://img.shields.io/badge/License-Apache 2.0-4C4C9D?style=flat-square" alt="License badge" />
