@@ -1,9 +1,10 @@
 // Import required packages / modules
 import inquirer from 'inquirer';
 import fs from "fs/promises";
-import generateMarkdown from "./utils/generateMarkdown.js";
+// Import function to generateMarkdown
+import generateMarkdown from "./utils/generateMarkdown.mjs";
 
-// Array of questions for user
+// Array of questions to be passed to inquirer.prompt
 const questions = [
     {
         type: 'input',
@@ -67,18 +68,18 @@ const questions = [
     }
 ];
 
-// Function to write README file
+// Function to create, and write content, to README file
 async function writeToFile(fileName, data) {
     await fs.writeFile(fileName, data);
 }
 
-// Function to initialize program
+// Function to run on program load
 async function init() {
-
+    // Store user input from prompt using the questions array
     const answers = await inquirer
         .prompt(questions)
         await writeToFile("README.md", generateMarkdown(answers));
 }
 
-// Function call to initialize program
+// Call to function to initialize program
 init();

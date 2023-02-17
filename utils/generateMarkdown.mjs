@@ -1,5 +1,6 @@
 // Function to generate markdown for README
 function generateMarkdown(data) {
+  // Returns a string, with variable values taken from passed argument
   return `# ${data.title}
 
   <img src="https://img.shields.io/badge/License-${data.license}-4C4C9D?style=for-the-badge" alt="License badge" />
@@ -48,4 +49,8 @@ function generateMarkdown(data) {
 `;
 }
 
-module.exports = generateMarkdown;
+// Allows import of function in other files
+// module.exports = generateMarkdown;
+
+// Changed this file ext to .mjs and using `export default generateMarkdown;` syntax instead of above.
+export default generateMarkdown;
